@@ -5,11 +5,11 @@ import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:temp/todo_list.dart';
+import 'package:temp/todos/todo_list.dart';
 import 'add_todo_form.dart';
-import 'amplifyconfiguration.dart';
-import 'models/ModelProvider.dart';
-import 'models/Todo.dart';
+import '../amplifyconfiguration.dart';
+import '../models/ModelProvider.dart';
+import '../models/Todo.dart';
 
 class TodosPage extends StatefulWidget {
   const TodosPage({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'models/Todo.dart';
+import '../models/Todo.dart';
 
 class AddTodoForm extends StatefulWidget {
   const AddTodoForm({Key? key}) : super(key: key);

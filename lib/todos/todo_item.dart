@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'models/Todo.dart';
+import '../models/Todo.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({
@@ -29,7 +29,10 @@ class TodoItem extends StatelessWidget {
 
   Future<void> _toggleIsComplete() async {
     // copy the Todo you wish to update, but with updated properties
-    final updatedTodo = todo.copyWith(isComplete: todo.isComplete);
+    final updatedTodo = todo.copyWith(
+        name: todo.name,
+        description: todo.description,
+        isComplete: !todo.isComplete!);
     try {
       // to update data in DataStore, you again pass an instance of a model to
       // Amplify.DataStore.save()
