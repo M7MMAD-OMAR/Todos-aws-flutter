@@ -1,5 +1,6 @@
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'models/Todo.dart';
@@ -18,7 +19,9 @@ class TodoItem extends StatelessWidget {
       // to delete data from DataStore, you pass the model instance to
       Amplify.DataStore.delete(todo);
       await Amplify.DataStore.delete(todo);
-      print("------------------------------------");
+      if (kDebugMode) {
+        print("------------------------------------");
+      }
     } catch (e) {
       safePrint('An error occurred while deleting Todo: $e');
     }

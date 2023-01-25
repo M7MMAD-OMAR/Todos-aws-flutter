@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:amplify_api/amplify_api.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
@@ -7,7 +6,6 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:temp/todo_list.dart';
-
 import 'add_todo_form.dart';
 import 'amplifyconfiguration.dart';
 import 'models/ModelProvider.dart';
@@ -67,12 +65,12 @@ class _TodosPageState extends State<TodosPage> {
   Future<void> _configureAmplify() async {
     try {
       // amplify plugins
-      final _dataStorePlugin =
+      final dataStorePlugin =
           AmplifyDataStore(modelProvider: ModelProvider.instance);
       final apiPlugin = AmplifyAPI();
       final authPlugin = AmplifyAuthCognito();
       // add Amplify plugins
-      await Amplify.addPlugins([_dataStorePlugin, apiPlugin, authPlugin]);
+      await Amplify.addPlugins([dataStorePlugin, apiPlugin, authPlugin]);
 
       // configure Amplify
       //
@@ -93,7 +91,7 @@ class _TodosPageState extends State<TodosPage> {
       ),
       // body: const Center(child: CircularProgressIndicator()),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : TodosList(todos: _todos),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {

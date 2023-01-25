@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:temp/todo_item.dart';
-
-import 'main.dart';
 import 'models/Todo.dart';
 
 class TodosList extends StatelessWidget {
