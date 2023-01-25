@@ -100,7 +100,7 @@ class _TodosPageState extends State<TodosPage> {
             MaterialPageRoute(builder: (context) => const AddTodoForm()),
           );
         },
-        tooltip: 'Add Todo',
+        tooltip: 'Add Txodo',
         label: Row(
           children: const [Icon(Icons.add), Text('Add todo')],
         ),
