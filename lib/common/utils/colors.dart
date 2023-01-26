@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 const Map<int, Color> primarySwatch = {
   50: Color.fromRGBO(255, 207, 68, .1),
   100: Color.fromRGBO(255, 207, 68, .2),
