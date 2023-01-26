@@ -25,9 +25,9 @@ class EditTripPage extends HookConsumerWidget {
     final destinationController =
         useTextEditingController(text: trip.destination);
     final startDateController = useTextEditingController(
-        text: DateFormat('yyyy-MM-dd').format(trip.startDate!.getDateTime()));
+        text: DateFormat('yyyy-MM-dd').format(trip.startDate.getDateTime()));
     final endDateController = useTextEditingController(
-        text: DateFormat('yyyy-MM-dd').format(trip.endDate!.getDateTime()));
+        text: DateFormat('yyyy-MM-dd').format(trip.endDate.getDateTime()));
 
     return Scaffold(
       appBar: AppBar(
@@ -176,7 +176,6 @@ class EditTripPage extends HookConsumerWidget {
                               DateTime.parse(startDateController.text)),
                           endDate: TemporalDate(
                               DateTime.parse(endDateController.text)),
-                          id: '',
                         );
                         ref.read(tripControllerProvider).edit(updatedTrip);
                         context.goNamed(

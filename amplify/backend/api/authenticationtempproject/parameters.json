@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "authenticationtempproject",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authauthenticationtemppr84ca6452",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

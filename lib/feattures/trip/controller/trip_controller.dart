@@ -20,7 +20,7 @@ class TripController {
       final imageUrl =
           await ref.read(storageServiceProvider).getImageUrl(fileKey);
       final updatedTrip =
-          trip.copyWith(tripImageKey: fileKey, tripImageUrl: imageUrl, id: '');
+          trip.copyWith(tripImageKey: fileKey, tripImageUrl: imageUrl);
       await ref.read(tripsRepositoryProvider).update(updatedTrip);
       ref.read(storageServiceProvider).resetUploadProgress();
     }
