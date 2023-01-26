@@ -10,7 +10,6 @@ final tripsListControllerProvider = Provider<TripsListController>((ref) {
 
 class TripsListController {
   TripsListController(this.ref);
-
   final Ref ref;
 
   Future<void> add({

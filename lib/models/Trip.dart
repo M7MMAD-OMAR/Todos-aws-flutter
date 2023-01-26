@@ -168,7 +168,8 @@ class Trip extends Model {
       TemporalDate? startDate,
       TemporalDate? endDate,
       String? tripImageUrl,
-      String? tripImageKey}) {
+      String? tripImageKey,
+      required String id}) {
     return Trip._internal(
         id: id,
         tripName: tripName ?? this.tripName,

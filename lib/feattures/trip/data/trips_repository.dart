@@ -15,13 +15,13 @@ final tripsListStreamProvider = StreamProvider.autoDispose<List<Trip?>>((ref) {
 });
 
 final pastTripsListStreamProvider =
-    StreamProvider.autoDispose<List<Trip?>>((ref) {
+StreamProvider.autoDispose<List<Trip?>>((ref) {
   final tripsRepository = ref.watch(tripsRepositoryProvider);
   return tripsRepository.getPastTrips();
 });
 
 final tripProvider =
-    StreamProvider.autoDispose.family<Trip?, String>((ref, id) {
+StreamProvider.autoDispose.family<Trip?, String>((ref, id) {
   final tripsRepository = ref.watch(tripsRepositoryProvider);
   return tripsRepository.get(id);
 });

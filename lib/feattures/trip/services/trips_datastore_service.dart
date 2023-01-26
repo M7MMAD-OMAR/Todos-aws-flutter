@@ -4,11 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../models/Trip.dart';
 
-// listenToTrips - This function will query the Amplify DataStore for the active and upcoming trips and stream a list of them.
-// listenToPastTrips - This function will query the Amplify DataStore for past trips and stream a list of them.
-// getTripStream - This function will query the Amplify DataStore for a specific trip and stream a list of that.
-// addTrip, deleteTrip, and updateTrip is for adding, deleting, or updating the trips in the Amplify DataStore.
-
 final tripsDataStoreServiceProvider = Provider<TripsDataStoreService>((ref) {
   final service = TripsDataStoreService();
   return service;
@@ -27,7 +22,7 @@ class TripsDataStoreService {
                 element.endDate!.getDateTime().isAfter(DateTime.now()))
             .toList())
         .handleError(
-      (error) {
+          (error) {
         debugPrint('listenToTrips: A Stream error happened');
       },
     );
@@ -43,7 +38,7 @@ class TripsDataStoreService {
                 element.endDate!.getDateTime().isBefore(DateTime.now()))
             .toList())
         .handleError(
-      (error) {
+          (error) {
         debugPrint('listenToTrips: A Stream error happened');
       },
     );
@@ -82,7 +77,7 @@ class TripsDataStoreService {
 
       final oldTrip = tripsWithId.first;
       final newTrip = oldTrip.copyWith(
-        // id: oldTrip.id,
+        id: oldTrip.id,
         tripName: updatedTrip.tripName,
         destination: updatedTrip.destination,
         startDate: updatedTrip.startDate,

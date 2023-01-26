@@ -41,6 +41,7 @@ class TripsPlannerApp extends StatelessWidget {
 
     return Authenticator(
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routeInformationParser: router.routeInformationParser,
         routeInformationProvider: router.routeInformationProvider,
         routerDelegate: router.routerDelegate,
