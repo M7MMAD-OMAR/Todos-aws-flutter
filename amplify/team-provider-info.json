@@ -17,6 +17,9 @@
       },
       "api": {
         "authenticationtempproject": {}
+      },
+      "storage": {
+        "s3fd6a1ad6": {}
       }
     }
   }

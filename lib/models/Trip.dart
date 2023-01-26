@@ -48,20 +48,56 @@ class Trip extends Model {
     return TripModelIdentifier(id: id);
   }
 
-  String? get tripName {
-    return _tripName;
+  String get tripName {
+    try {
+      return _tripName!;
+    } catch (e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
+    }
   }
 
-  String? get destination {
-    return _destination;
+  String get destination {
+    try {
+      return _destination!;
+    } catch (e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
+    }
   }
 
-  TemporalDate? get startDate {
-    return _startDate;
+  TemporalDate get startDate {
+    try {
+      return _startDate!;
+    } catch (e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
+    }
   }
 
-  TemporalDate? get endDate {
-    return _endDate;
+  TemporalDate get endDate {
+    try {
+      return _endDate!;
+    } catch (e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
+    }
   }
 
   String? get tripImageUrl {
@@ -82,10 +118,10 @@ class Trip extends Model {
 
   const Trip._internal(
       {required this.id,
-      tripName,
-      destination,
-      startDate,
-      endDate,
+      required tripName,
+      required destination,
+      required startDate,
+      required endDate,
       tripImageUrl,
       tripImageKey,
       createdAt,
@@ -101,10 +137,10 @@ class Trip extends Model {
 
   factory Trip(
       {String? id,
-      String? tripName,
-      String? destination,
-      TemporalDate? startDate,
-      TemporalDate? endDate,
+      required String tripName,
+      required String destination,
+      required TemporalDate startDate,
+      required TemporalDate endDate,
       String? tripImageUrl,
       String? tripImageKey}) {
     return Trip._internal(
@@ -168,8 +204,7 @@ class Trip extends Model {
       TemporalDate? startDate,
       TemporalDate? endDate,
       String? tripImageUrl,
-      String? tripImageKey,
-      required String id}) {
+      String? tripImageKey}) {
     return Trip._internal(
         id: id,
         tripName: tripName ?? this.tripName,
@@ -238,34 +273,39 @@ class Trip extends Model {
     modelSchemaDefinition.pluralName = "Trips";
 
     modelSchemaDefinition.authRules = [
-      AuthRule(authStrategy: AuthStrategy.PUBLIC, operations: [
-        ModelOperation.CREATE,
-        ModelOperation.UPDATE,
-        ModelOperation.DELETE,
-        ModelOperation.READ
-      ])
+      AuthRule(
+          authStrategy: AuthStrategy.OWNER,
+          ownerField: "owner",
+          identityClaim: "cognito:username",
+          provider: AuthRuleProvider.USERPOOLS,
+          operations: [
+            ModelOperation.CREATE,
+            ModelOperation.UPDATE,
+            ModelOperation.DELETE,
+            ModelOperation.READ
+          ])
     ];
 
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
         key: Trip.TRIPNAME,
-        isRequired: false,
+        isRequired: true,
         ofType: ModelFieldType(ModelFieldTypeEnum.string)));
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
         key: Trip.DESTINATION,
-        isRequired: false,
+        isRequired: true,
         ofType: ModelFieldType(ModelFieldTypeEnum.string)));
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
         key: Trip.STARTDATE,
-        isRequired: false,
+        isRequired: true,
         ofType: ModelFieldType(ModelFieldTypeEnum.date)));
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
         key: Trip.ENDDATE,
-        isRequired: false,
+        isRequired: true,
         ofType: ModelFieldType(ModelFieldTypeEnum.date)));
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(

@@ -77,7 +77,7 @@ class TripsDataStoreService {
 
       final oldTrip = tripsWithId.first;
       final newTrip = oldTrip.copyWith(
-        id: oldTrip.id,
+        // id: oldTrip.id,
         tripName: updatedTrip.tripName,
         destination: updatedTrip.destination,
         startDate: updatedTrip.startDate,

@@ -58,7 +58,7 @@ dependencies:
   #  intl: ^0.17.0
   cached_network_image:
   cupertino_icons:
-  flutter_hooks: ^0.18.5+1
+  flutter_hooks:
   flutter_riverpod:
   go_router:
   hooks_riverpod:
@@ -90,7 +90,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/my.jpg
+    - images/amplify.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

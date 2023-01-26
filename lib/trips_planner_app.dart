@@ -3,7 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'common/navigation/router/routes.dart';
 import 'common/utils/colors.dart';
+import 'feattures/trip/ui/edit_trip_page/edit_trip_page.dart';
+import 'feattures/trip/ui/tip_page/trip_page.dart';
 import 'feattures/trip/ui/trips_list/trips_list_page.dart';
+import 'models/Trip.dart';
 
 class TripsPlannerApp extends StatelessWidget {
   const TripsPlannerApp({
@@ -30,6 +33,23 @@ class TripsPlannerApp extends StatelessWidget {
                     ),
                   ),
                 ),
+        ),
+        GoRoute(
+          path: '/trip/:id',
+          name: AppRoute.trip.name,
+          builder: (context, state) {
+            final tripId = state.params['id']!;
+            return TripPage(tripId: tripId);
+          },
+        ),
+        GoRoute(
+          path: '/edittrip/:id',
+          name: AppRoute.edittrip.name,
+          builder: (context, state) {
+            return EditTripPage(
+              trip: state.extra! as Trip,
+            );
+          },
         ),
       ],
       errorBuilder: (context, state) => Scaffold(
